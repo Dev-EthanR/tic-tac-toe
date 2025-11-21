@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+*::before, *::after, * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font: inherit;
+}
+
+body {
+  line-height: 1.5;
+  font-family: "Outfit", sans-serif;
+  font-size: 1.4rem;
+}
+
+.btn {
+  border: none;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 0.125rem;
+  color: hsl(202, 32%, 15%);
+  cursor: pointer;
+  transition: transform 0.1s ease;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-xs {
+  padding: 0.5rem;
+  height: 52px;
+  max-width: 52px;
+}
+.btn-xs img {
+  width: 100%;
+  max-width: 20px;
+  max-height: 20px;
+  font-weight: 100;
+}
+
+.btn-sm {
+  padding: 1rem;
+  max-width: 22.6rem;
+  font-size: 1.6rem;
+  letter-spacing: 0.1rem;
+}
+
+.btn-lg {
+  max-width: 41rem;
+  padding: 1.4rem 2rem;
+}
+
+.btn-gold {
+  box-shadow: 0 6px 0 hsl(39, 88%, 49.3%);
+  background-color: hsl(39, 88%, 58%);
+}
+.btn-gold.btn-lg {
+  box-shadow: 0 8px 0 hsl(39, 88%, 49.3%);
+}
+.btn-gold:hover {
+  background-color: hsl(39, 100%, 69%);
+}
+.btn-gold:active {
+  transform: translateY(2px);
+}
+
+.btn-blue {
+  box-shadow: 0 6px 0 hsl(178, 60%, 40.8%);
+  background-color: hsl(178, 60%, 48%);
+}
+.btn-blue.btn-lg {
+  box-shadow: 0 8px 0 hsl(178, 60%, 40.8%);
+}
+.btn-blue:hover {
+  background-color: hsl(178, 75%, 65%);
+}
+.btn-blue:active {
+  transform: translateY(2px);
+}
+
+.btn-grey {
+  box-shadow: 0 6px 0 hsl(198, 23%, 61.2%);
+  background-color: hsl(198, 23%, 72%);
+}
+.btn-grey.btn-lg {
+  box-shadow: 0 8px 0 hsl(198, 23%, 61.2%);
+}
+.btn-grey:hover {
+  background-color: hsl(197, 33%, 89%);
+}
+.btn-grey:active {
+  transform: translateY(2px);
+}
+
+:root {
+  --active-img: "active",
+  --inactive-img: "unchecked" ;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 412px;
+  height: 72px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  background-color: hsl(202, 32%, 15%);
+  border-radius: 10px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0.9rem;
+  display: flex;
+}
+.slider .btn-active {
+  position: absolute;
+  border-radius: 10px;
+  height: 54px;
+  width: 200px;
+  left: 0;
+  bottom: 0;
+  background-color: hsl(197, 33%, 89%);
+  transition: 0.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.slider .btn-inactive {
+  position: absolute;
+  display: block;
+  border-radius: 10px;
+  height: 54px;
+  width: 190px;
+  left: 5px;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.slider .btn-inactive:hover {
+  background-color: hsl(199, 35%, 59.5%);
+}
+.slider #sliderNortImg, .slider #sliderCrossImg {
+  position: absolute;
+  filter: brightness(0) saturate(100%) invert(94%) sepia(88%) saturate(1280%) hue-rotate(177deg) brightness(112%) contrast(85%);
+  z-index: 1;
+  width: 32px;
+  top: 10px;
+}
+.slider #sliderNortImg.menu-img-active, .slider #sliderCrossImg.menu-img-active {
+  filter: brightness(0) saturate(100%) invert(12%) sepia(6%) saturate(3379%) hue-rotate(157deg) brightness(95%) contrast(91%);
+}
+.slider #sliderCrossImg {
+  left: 20%;
+}
+.slider #sliderNortImg {
+  left: 70%;
+}
+
+input:focus-visible + .slider {
+  outline: 2px solid hsl(202, 32%, 15%);
+  outline-offset: 2px;
+}
+
+input:checked + .slider .btn-active {
+  transform: translateX(195px);
+}
+
+input:checked + .slider .btn-inactive {
+  transform: translateX(0);
+}
+
+input:not(:checked) + .slider .btn-active {
+  transform: translateX(0);
+}
+
+input:not(:checked) + .slider .btn-inactive {
+  transform: translateX(195px);
+}/*# sourceMappingURL=styles.css.map */

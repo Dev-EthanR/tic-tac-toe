@@ -1,0 +1,32 @@
+@use './variables'as *;
+@use 'sass:color';
+@use 'sass:map';
+ 
+@mixin screen($breakpoint){
+    @media screen and (min-width: map.get(breakpoints, $breakpoint)) {
+        @content;
+    }
+}
+
+@mixin buttonColor($color) {
+    $shadow-color: color.scale(getColor($color), $lightness: -15%);
+     box-shadow: 0 6px 0 $shadow-color;
+    &.btn-lg {
+      box-shadow: 0 8px 0 $shadow-color;
+    } 
+    background-color: getColor($color);
+    &:hover {
+        $hover-color: '#{$color}-hover';
+        background-color: getColor('#{$color}-hover');      
+    }
+    &:active {
+        transform: translateY(2px);
+    }
+}
+
+@mixin centerContent($direction: row){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}

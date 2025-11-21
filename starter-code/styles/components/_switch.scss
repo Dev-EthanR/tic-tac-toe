@@ -1,0 +1,100 @@
+@use '../utils/utils' as *;
+@use 'sass:color';
+$border-radius: 10px;
+:root {
+    --active-img: "active",
+    --inactive-img: "unchecked"
+}
+// switch itself
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 412px;
+    height: 72px;
+    user-select: none;
+    background-color: getColor('primary');
+    border-radius: $border-radius;
+    input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        }
+}
+
+// background of switch
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0.9rem;
+    display: flex;
+
+    .btn-active {
+        position: absolute;
+        border-radius: $border-radius;
+        height: 54px;
+        width: 200px;
+        left: 0;
+        bottom: 0;
+        background-color: getColor('slider');
+        -webkit-transition: .4s;
+        transition: .4s;
+        @include centerContent;
+        
+    }
+    .btn-inactive {
+        position: absolute;
+        display: block;
+        border-radius: $border-radius;
+        height: 54px;
+        width: 190px;
+        left: 5px;
+        bottom: 0;
+        @include centerContent;    
+        &:hover {
+              background-color: color.scale(getColor("secondary"), $lightness: 50%);
+        }
+    }
+    #sliderNortImg, #sliderCrossImg {
+        position: absolute;
+        filter: brightness(0) saturate(100%) invert(94%) sepia(88%) saturate(1280%) hue-rotate(177deg) brightness(112%) contrast(85%);
+        z-index: 1;
+        width: 32px;
+        top: 10px;
+        &.menu-img-active {
+            filter: brightness(0) saturate(100%) invert(12%) sepia(6%) saturate(3379%) hue-rotate(157deg) brightness(95%) contrast(91%);
+        }
+    }
+    #sliderCrossImg {
+        left: 20%;
+    }
+    #sliderNortImg {
+        left: 70%;
+    }  
+}
+
+
+// focus state
+input:focus-visible + .slider {
+    outline: 2px solid getColor('primary');
+    outline-offset: 2px;
+}
+
+// slider distance
+input:checked + .slider .btn-active {
+  transform: translateX(195px);
+}
+input:checked + .slider .btn-inactive {
+  transform: translateX(0);
+}
+
+
+input:not(:checked) + .slider .btn-active {
+  transform: translateX(0);
+}
+input:not(:checked) + .slider .btn-inactive {
+  transform: translateX(195px);
+}

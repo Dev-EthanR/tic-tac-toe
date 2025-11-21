@@ -1,0 +1,29 @@
+@use '../utils/utils' as *;
+
+*::before, *::after, * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    font: inherit;
+}
+
+body {
+    line-height: 1.5;
+    font-family: $base-ff;
+    font-size: getFont(size, 'body');
+}
+
+h1 {
+
+}

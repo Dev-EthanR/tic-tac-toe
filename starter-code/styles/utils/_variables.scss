@@ -1,0 +1,63 @@
+@use 'sass:map';
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+$base-ff: "Outfit", sans-serif;
+
+$breakpoints: (
+    "tablet": 600px,
+    "desktop": 1024px
+);
+
+$colors: (
+    "primary": hsl(202, 32%, 15%),
+    "secondary": hsl(199, 35%, 19%),
+    "action-primary": hsl(39, 88%, 58%),
+    "action-primary-hover": hsl(39, 100%, 69%),
+    "action-secondary": hsl(178, 60%, 48%),
+    "action-secondary-hover": hsl(178, 75%, 65%),
+    "accent": hsl(198, 23%, 72%),
+    "accent-hover": hsl(197, 33%, 89%),
+    "slider": hsl(197, 33%, 89%)
+
+);
+
+$fonts: (
+    size: (
+        "heading-l": 4rem,
+        "heading-m": 2.4rem,
+        "heading-sm": 2rem,
+        "heading-xs": 1.6rem,
+        "body": 1.4rem
+    ),
+    letter-spacing: (
+        "heading-l": 0.25rem,
+        "heading-m": 0.15rem,
+        "heading-sm": 0.125rem,
+        "heading-xs": 0.1rem,
+        "body": 0.08rem
+
+    ),
+    weight: (
+        "bold": 700,
+        "medium": 500
+    )
+);
+
+@function getColor($color){
+    @if not (map.has-key($colors, $color)){
+        @error "Incorrect color provided. check the the color again.";
+    } 
+    @return map.get($colors, $color);
+
+}
+
+@function getFont($type, $value) {
+    @if(map.get($fonts, $type) == null) {
+        @error "Unknown font type: #{$fontType}";
+    }
+    @if (map.get(map.get($fonts, $type), $value) == null) {
+        @error "Unknown font value '#{$value}' for font type '#{$fontType}'";
+    }
+
+    @return map.get(map.get($fonts, $type), $value);
+}
