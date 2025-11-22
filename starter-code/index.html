@@ -16,49 +16,53 @@
   <body>
     <!-- New game menu start -->
 
-    Pick player 1's mark Remember: X goes first
-    <button class="btn btn-xs btn-grey">
-      <img src="assets/icon-restart.svg" alt="" />
-    </button>
-    <label class="switch">
-      <input type="checkbox" id="switchCheckBox" />
-      <span class="slider" id="slider">
-        <img src="assets/icon-o.svg" alt="o" id="sliderNortImg" />
-        <span class="btn btn-inactive"></span>
-        <span class="btn btn-active"></span>
-        <img
-          class="menu-img-active"
-          src="assets/icon-x.svg"
-          id="sliderCrossImg"
-        />
-      </span>
-    </label>
-    <button class="menu-btn btn btn-lg btn-gold" data-mode="CPU">
-      New Game (vs CPU)
-    </button>
-    <button class="menu-btn btn btn-lg btn-blue" data-mode="player">
-      New Game (vs player)
-    </button>
+    <header class="main-menu" id="menuScreen">
+      <img class="logo" src="assets/logo.svg" alt="logo" />
+      <div class="mark-selection">
+        <h1 class="selection">Pick player 1's mark</h1>
+        <label class="switch">
+          <input type="checkbox" id="switchCheckBox" />
+          <span class="slider" id="slider">
+            <img src="assets/icon-o.svg" alt="o" id="sliderNortImg" />
+            <span class="btn btn-inactive"></span>
+            <span class="btn btn-active"></span>
+            <img
+              class="menu-img-active"
+              src="assets/icon-x.svg"
+              id="sliderCrossImg"
+            />
+          </span>
+        </label>
+        <p class="menu-note">Remember : X goes first</p>
+      </div>
+
+      <button class="menu-btn btn btn-lg btn-gold" data-mode="CPU">
+        New Game (vs CPU)
+      </button>
+      <button class="menu-btn btn btn-lg btn-blue" data-mode="player">
+        New Game (vs player)
+      </button>
+    </header>
 
     <!-- New game menu end -->
 
     <!-- Game board start -->
 
     <!-- x/o icon -->
-    turn X (You)
+    <!-- turn X (You) -->
     <!-- Your score -->
-    Ties
+    <!-- Ties -->
     <!-- Ties score -->
-    X (CPU)
+    <!-- X (CPU) -->
     <!-- CPU score -->
 
-    Oh no, you lost You won! Player
+    <!-- Oh no, you lost You won! Player -->
     <!-- 1/2 -->
-    wins!
+    <!-- wins! -->
 
     <!-- x/o icon -->
-    takes the round Round tied Restart game? Quit Next round No, cancel Yes,
-    restart
+    <!-- takes the round Round tied Restart game? Quit Next round No, cancel Yes,
+    restart -->
 
     <!-- Game board end -->
     <script type="module" src="scripts/index.js"></script>

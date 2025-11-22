@@ -1,2 +1,37 @@
 @use '../components/button';
 @use '../components/switch';
+@use '../utils/utils' as *;
+@use 'sass:color';
+
+$menu-margin: 4rem;
+
+.main-menu {
+    @include centerContent(column);
+    text-align: center;
+    .logo {
+        margin-bottom: $menu-margin;
+    }
+    .mark-selection {
+        background-color: getColor("secondary");
+        box-shadow: 0 8px 0 color.scale(getColor("primary"), $lightness: -25%);
+        border-radius: 15px;
+        padding: 2rem 3rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin-bottom: $menu-margin;
+        .selection {
+            color: getColor('accent');
+            text-transform: uppercase;
+            font-size: getFont(size, 'heading-xs');
+        }
+        .menu-note {
+            color: getColor('accent');
+            text-transform: uppercase;
+            font-weight: getFont(weight, 'medium');
+        }
+    }
+    .menu-btn {
+        margin-bottom: 3rem;
+    }
+}

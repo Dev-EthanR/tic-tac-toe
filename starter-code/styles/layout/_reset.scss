@@ -22,8 +22,12 @@ body {
     line-height: 1.5;
     font-family: $base-ff;
     font-size: getFont(size, 'body');
+    letter-spacing: getFont(letter-spacing, 'body');
+    background-color: getColor('primary');
+    height: 100vh;
+    @include centerContent(column)
 }
 
-h1 {
-
+.is-hidden {
+    display: none !important;
 }

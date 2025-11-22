@@ -7,16 +7,17 @@
     border-radius: 15px;
     text-transform: uppercase;
     font-weight: getFont(weight, "bold");
-    font-size: getFont(size, "heading-sm");
-    letter-spacing: getFont(letter-spacing, "heading-sm");
+    font-size: getFont(size, 'heading-xs');
+    letter-spacing: getFont(letter-spacing, 'heading-xs');
     color: getColor('primary');
     cursor: pointer;
     transition: transform 0.1s ease;
     user-select: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+    @include centerContent;
+    @include screen("tablet") {
+        font-size: getFont(size, "heading-sm");
+        letter-spacing: getFont(letter-spacing, "heading-sm");
+    }
 }
 
 .btn-xs {
@@ -38,8 +39,12 @@
 }
 
 .btn-lg {
-    max-width: 41rem;
-    padding: 1.4rem 2rem;
+    max-width: 32.7rem;
+    padding: 1.1rem 2rem;
+    @include screen("tablet") {
+        padding: 1.4rem 2rem;
+        max-width: 46rem;
+    }
 }
 
 .btn-gold {

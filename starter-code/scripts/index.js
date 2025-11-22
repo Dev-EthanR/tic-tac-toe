@@ -9,10 +9,10 @@ import { setMenu } from './menu.js';
 const appState = {
     mark: null,
     mode: null,
+    currentScreen: 'menu'
 }
 
-console.log(appState)
 document.querySelectorAll('.menu-btn').forEach(btn => btn.addEventListener('click', (e) => {
      Object.assign(appState, setMenu(e));
-     console.log(appState)
+     appState.currentScreen = 'game';
 }));

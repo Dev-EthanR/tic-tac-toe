@@ -9,6 +9,8 @@ function sliderOption() {
 export function setMenu(e) {
     const mark = checkbox.checked ? "o" : "x";
     const mode = e.target.dataset.mode;
+    document.getElementById('menuScreen').classList.add('is-hidden');
+
     return {mark, mode}
 }
 checkbox.addEventListener('change', sliderOption)
