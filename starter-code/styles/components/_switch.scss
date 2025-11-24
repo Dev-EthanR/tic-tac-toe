@@ -1,6 +1,5 @@
 @use '../utils/utils' as *;
 @use 'sass:color';
-$border-radius: 10px;
 :root {
     --active-img: "active",
     --inactive-img: "unchecked"

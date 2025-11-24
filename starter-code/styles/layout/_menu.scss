@@ -1,6 +1,6 @@
+@use '../utils/utils' as *;
 @use '../components/button';
 @use '../components/switch';
-@use '../utils/utils' as *;
 @use 'sass:color';
 
 $menu-margin: 4rem;
@@ -13,7 +13,7 @@ $menu-margin: 4rem;
     }
     .mark-selection {
         background-color: getColor("secondary");
-        box-shadow: 0 8px 0 color.scale(getColor("primary"), $lightness: -25%);
+        box-shadow: 0 8px 0 getColor('dark-box-shadow');
         border-radius: 15px;
         padding: 2rem 3rem;
         display: flex;

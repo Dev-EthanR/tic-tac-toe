@@ -47,7 +47,41 @@
     <!-- New game menu end -->
 
     <!-- Game board start -->
+    <main class="game-container is-hidden" id="gameScreen">
+      <header class="game-header">
+        <img class="logo" src="assets/logo.svg" alt="logo" />
+        <div class="current-turn">
+          <img src="assets/icon-x.svg" alt="" />
+          <span class="current-turn-text">turn</span>
+        </div>
+        <button class="btn btn-xs btn-grey">
+          <img src="assets/icon-restart.svg" alt="restart game" />
+        </button>
+      </header>
 
+      <section class="game-board">
+        <span class="tile"></span><span class="tile"></span
+        ><span class="tile"></span><span class="tile"></span
+        ><span class="tile"></span><span class="tile"></span
+        ><span class="tile"></span><span class="tile"></span
+        ><span class="tile"></span>
+      </section>
+
+      <footer class="game-scores">
+        <span class="p1-score score-tile">
+          <p>x (you)</p>
+          <span class="score-number" id="p1Score">0</span>
+        </span>
+        <span class="tie-score score-tile">
+          <p>ties</p>
+          <span class="score-number" id="tieScore">0</span>
+        </span>
+        <span class="p2-score score-tile">
+          <p>o (cpu)</p>
+          <span class="score-number" id="p2Score">0</span>
+        </span>
+      </footer>
+    </main>
     <!-- x/o icon -->
     <!-- turn X (You) -->
     <!-- Your score -->

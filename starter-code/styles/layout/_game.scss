@@ -1,0 +1,107 @@
+@use '../utils/utils' as *;
+@use 'sass:color';
+ :root {
+    --tile-width: 9.6rem;
+ }
+@include screen('tablet') {
+    :root {
+    --tile-width: 14rem;
+    }
+}
+
+.game-container {
+    width: 100%;
+    max-width: 328px;
+    @include screen("tablet") {
+        max-width: 460px;
+    }
+    
+    
+}
+
+.game-header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    margin-bottom: $board-gap;
+    user-select: none;
+    .btn {
+        justify-self: flex-end;
+    }
+    .game-logo {
+        width: 71px;
+        height: 32px;
+    }
+    .current-turn {
+        background-color: getColor('secondary');
+        padding: 1.2rem 1rem;
+        margin-left: 0.6rem;
+        max-width: var(--tile-width);
+       @include centerContent;
+        gap: 1.3rem;
+        border-radius: $border-radius;
+        box-shadow: 0 4px 0 getColor("dark-box-shadow");
+        .current-turn-text {
+            color: getColor('accent');
+            text-transform: uppercase;
+            font-size: getFont(size, 'heading-xs');
+            letter-spacing: getFont(letter-spacing, 'heading-xs');
+            font-weight: getFont(weight, 'bold');
+        }
+        img {
+            width: 2rem;
+            height: 2rem;
+            filter: brightness(0) saturate(100%) invert(71%) sepia(66%) saturate(77%) hue-rotate(155deg) brightness(91%) contrast(95%);
+        }
+    }
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $board-gap;
+    margin-bottom: $board-gap;
+    .tile {
+        @include centerContent;
+        border-radius: 15px;
+        padding: 2rem;
+        width: var(--tile-width);
+        height: var(--tile-width);
+        background-color: getColor('secondary');
+        box-shadow: 0 7px 0 getColor("dark-box-shadow");
+        cursor: pointer;
+        user-select: none;
+    }
+}
+
+.game-scores {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $board-gap;
+    .score-tile {
+        width: var(--tile-width);
+        height: 7.2rem;
+        border-radius: 15px;
+        gap: -1px;
+        @include centerContent;
+        flex-direction: column;
+        p {
+            text-transform: uppercase;
+        }
+        .score-number {
+            font-size: getFont(size, 'heading-m');
+            letter-spacing: getFont(letter-spacing, 'heading-m');
+            font-weight: getFont(weight, 'bold');
+            line-height: 1;
+        }
+    }
+    .p1-score {
+        background-color: getColor('action-secondary');
+    }
+    .tie-score {
+        background-color: getColor('accent');
+    }
+    .p2-score {
+       background-color: getColor('action-primary');
+    }
+}

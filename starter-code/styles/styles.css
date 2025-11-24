@@ -291,4 +291,123 @@ input:not(:checked) + .slider .btn-inactive {
 }
 .main-menu .menu-btn {
   margin-bottom: 3rem;
+}
+
+:root {
+  --tile-width: 9.6rem;
+}
+
+@media screen and (min-width: 600px) {
+  :root {
+    --tile-width: 14rem;
+  }
+}
+.game-container {
+  width: 100%;
+  max-width: 328px;
+}
+@media screen and (min-width: 600px) {
+  .game-container {
+    max-width: 460px;
+  }
+}
+
+.game-header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  margin-bottom: 2rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.game-header .btn {
+  justify-self: flex-end;
+}
+.game-header .game-logo {
+  width: 71px;
+  height: 32px;
+}
+.game-header .current-turn {
+  background-color: hsl(199, 35%, 19%);
+  padding: 1.2rem 1rem;
+  margin-left: 0.6rem;
+  max-width: var(--tile-width);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 1.3rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 0 hsl(202, 32%, 11.25%);
+}
+.game-header .current-turn .current-turn-text {
+  color: hsl(198, 23%, 72%);
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  letter-spacing: 0.1rem;
+  font-weight: 700;
+}
+.game-header .current-turn img {
+  width: 2rem;
+  height: 2rem;
+  filter: brightness(0) saturate(100%) invert(71%) sepia(66%) saturate(77%) hue-rotate(155deg) brightness(91%) contrast(95%);
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.game-board .tile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  border-radius: 15px;
+  padding: 2rem;
+  width: var(--tile-width);
+  height: var(--tile-width);
+  background-color: hsl(199, 35%, 19%);
+  box-shadow: 0 7px 0 hsl(202, 32%, 11.25%);
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.game-scores {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.game-scores .score-tile {
+  width: var(--tile-width);
+  height: 7.2rem;
+  border-radius: 15px;
+  gap: -1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-direction: column;
+}
+.game-scores .score-tile p {
+  text-transform: uppercase;
+}
+.game-scores .score-tile .score-number {
+  font-size: 2.4rem;
+  letter-spacing: 0.15rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.game-scores .p1-score {
+  background-color: hsl(178, 60%, 48%);
+}
+.game-scores .tie-score {
+  background-color: hsl(198, 23%, 72%);
+}
+.game-scores .p2-score {
+  background-color: hsl(39, 88%, 58%);
 }/*# sourceMappingURL=styles.css.map */

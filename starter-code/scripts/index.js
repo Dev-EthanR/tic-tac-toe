@@ -15,4 +15,9 @@ const appState = {
 document.querySelectorAll('.menu-btn').forEach(btn => btn.addEventListener('click', (e) => {
      Object.assign(appState, setMenu(e));
      appState.currentScreen = 'game';
+     gameStart();
 }));
+
+function gameStart() {
+     document.getElementById('gameScreen').classList.remove('is-hidden')
+}

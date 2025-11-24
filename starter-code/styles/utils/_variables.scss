@@ -1,7 +1,10 @@
 @use 'sass:map';
+@use 'sass:color';
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
 $base-ff: "Outfit", sans-serif;
+$border-radius: 10px;
+$board-gap: 2rem;
 
 $breakpoints: (
     "tablet": 600px,
@@ -17,8 +20,8 @@ $colors: (
     "action-secondary-hover": hsl(178, 75%, 65%),
     "accent": hsl(198, 23%, 72%),
     "accent-hover": hsl(197, 33%, 89%),
-    "slider": hsl(197, 33%, 89%)
-
+    "slider": hsl(197, 33%, 89%),
+    "dark-box-shadow": color.scale(hsl(202, 32%, 15%), $lightness: -25%)
 );
 
 $fonts: (
