@@ -57,6 +57,7 @@
 }
 
 .game-board {
+    $tile-shadow-height: 7px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: $board-gap;
@@ -68,9 +69,24 @@
         width: var(--tile-width);
         height: var(--tile-width);
         background-color: getColor('secondary');
-        box-shadow: 0 7px 0 getColor("dark-box-shadow");
+        box-shadow: 0 $tile-shadow-height 0 getColor("dark-box-shadow");
         cursor: pointer;
         user-select: none;
+    }
+    .o-win, .x-win {
+        > img {
+            filter: brightness(0) saturate(100%) invert(12%) sepia(6%) saturate(3379%) hue-rotate(157deg) brightness(95%) contrast(91%);
+        }
+    }
+    .x-win {
+        $shadow-color: color.scale(getColor('action-secondary'), $lightness: -15%);
+        background-color: getColor('action-secondary');
+        box-shadow: 0 $tile-shadow-height 0 $shadow-color;
+    }
+    .o-win {
+        $shadow-color: color.scale(getColor('action-primary'), $lightness: -15%);
+        background-color: getColor('action-primary');
+        box-shadow: 0 $tile-shadow-height 0 $shadow-color;
     }
 }
 

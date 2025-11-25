@@ -1,3 +1,5 @@
+import { appState } from "./index.js";
+
 const checkbox = document.getElementById('switchCheckBox');
 
 function sliderOption() {
@@ -7,10 +9,15 @@ function sliderOption() {
 
 
 export function setMenu(e) {
-    const mark = checkbox.checked ? "o" : "x";
+    const playerOneMark = checkbox.checked ? "o" : "x";
+    const playerTwoMark = !checkbox.checked ? "o" : "x";
     const mode = e.target.dataset.mode;
     document.getElementById('menuScreen').classList.add('is-hidden');
 
-    return {mark, mode}
+    return {
+        playerOne: {mark: playerOneMark, score: appState.playerOne.score}, 
+        playerTwo: {mark: playerTwoMark, score: appState.playerTwo.score}, 
+        mode
+    }
 }
 checkbox.addEventListener('change', sliderOption)

@@ -5,19 +5,35 @@
 */
 
 import { setMenu } from './menu.js';
+import { nextTurn } from './game.js';
 
-const appState = {
-    mark: null,
+export const appState = {
+     playerOne: {
+          mark: null,
+          score: 0
+     },
+      playerTwo: {
+          mark: null,
+          score: 0
+     },
+    totalTies: 0,
     mode: null,
-    currentScreen: 'menu'
+    currentScreen: 'menu',
+    currentTurn: null
 }
+
+
 
 document.querySelectorAll('.menu-btn').forEach(btn => btn.addEventListener('click', (e) => {
      Object.assign(appState, setMenu(e));
      appState.currentScreen = 'game';
+     appState.currentTurn = (appState.playerOne.mark === 'x' ? 'playerOne' : 'playerTwo');
      gameStart();
 }));
 
 function gameStart() {
      document.getElementById('gameScreen').classList.remove('is-hidden')
+     nextTurn()
+     
 }
+

@@ -376,6 +376,17 @@ input:not(:checked) + .slider .btn-inactive {
      -moz-user-select: none;
           user-select: none;
 }
+.game-board .o-win > img, .game-board .x-win > img {
+  filter: brightness(0) saturate(100%) invert(12%) sepia(6%) saturate(3379%) hue-rotate(157deg) brightness(95%) contrast(91%);
+}
+.game-board .x-win {
+  background-color: hsl(178, 60%, 48%);
+  box-shadow: 0 7px 0 hsl(178, 60%, 40.8%);
+}
+.game-board .o-win {
+  background-color: hsl(39, 88%, 58%);
+  box-shadow: 0 7px 0 hsl(39, 88%, 49.3%);
+}
 
 .game-scores {
   display: grid;
