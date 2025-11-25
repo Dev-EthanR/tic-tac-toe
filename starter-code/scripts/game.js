@@ -12,13 +12,10 @@ function hoverTile(currentTile) {
         if(!currentTile.firstChild) return;
         currentTile.removeChild(currentTile.firstChild);
     })
-    
 }
 
 function clickTile(currentTile) {
-    currentTile.addEventListener('click', () => {
         if (currentTile.dataset.isSelected) return;
-        currentTile.removeChild(currentTile.firstChild);
         
         const mark = appState.mode === 'CPU' ? appState.playerOne.mark : appState[appState.currentTurn].mark;
         createImage(`assets/icon-${mark}.svg`, currentTile, mark);
@@ -26,9 +23,6 @@ function clickTile(currentTile) {
         appState.currentTurn = appState.currentTurn === "playerOne" ? "playerTwo" : "playerOne";
         
         nextTurn();
-       
-    });
-  
 }
 
 
@@ -52,7 +46,9 @@ export function nextTurn() {
     }
     tiles.forEach(tile => { 
           hoverTile(tile)
-          clickTile(tile)
+          tile.addEventListener('click', () => {
+            clickTile(tile)
+        })
      })
 }
 
