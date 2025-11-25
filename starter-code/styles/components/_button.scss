@@ -32,10 +32,11 @@
     }
 }
 .btn-sm {
-    padding: 1rem;
+    padding: 1.2rem 2.2rem;
     max-width: 22.6rem;
     font-size: getFont(size, "heading-xs");
     letter-spacing: getFont(letter-spacing, "heading-xs");
+     white-space: nowrap;
 }
 
 .btn-lg {

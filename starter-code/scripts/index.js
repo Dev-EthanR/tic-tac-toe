@@ -19,21 +19,57 @@ export const appState = {
     totalTies: 0,
     mode: null,
     currentScreen: 'menu',
-    currentTurn: null
+    currentTurn: null,
+    reset: () => {
+     appState.playerOne = { mark: null, score: 0 };
+     appState.playerTwo = { mark: null, score: 0 };
+     appState.totalTies = 0;
+     appState.mode = null;
+     appState.currentScreen = 'menu';
+     appState.currentTurn = null;
+    }
 }
 
 
 
-document.querySelectorAll('.menu-btn').forEach(btn => btn.addEventListener('click', (e) => {
+function mainMenu() {
+     appState.reset();
+     appState.currentScreen = 'menu'
+     document.getElementById('menuScreen').classList.remove('is-hidden');
+     document.getElementById('gameScreen').classList.add('is-hidden');
+     document.getElementById('endScreen').classList.add('is-hidden');
+     document.getElementById('focusContent').classList.add('is-hidden');
+
+     document.querySelectorAll('.menu-btn').forEach(btn => btn.addEventListener('click', (e) => {
      Object.assign(appState, setMenu(e));
      appState.currentScreen = 'game';
-     appState.currentTurn = (appState.playerOne.mark === 'x' ? 'playerOne' : 'playerTwo');
      gameStart();
 }));
-
-function gameStart() {
-     document.getElementById('gameScreen').classList.remove('is-hidden')
-     nextTurn()
-     
 }
 
+function clearBoard() {
+     appState.currentTurn = (appState.playerOne.mark === 'x' ? 'playerOne' : 'playerTwo');
+     const tiles = document.querySelectorAll('.tile');
+     tiles.forEach(e => {
+          e.dataset.isSelected = '';
+          e.classList.remove('x-win');
+          e.classList.remove('o-win');
+          while(e.firstChild) {
+               e.removeChild(e.firstChild)
+          }
+     })
+}
+
+function gameStart() {
+     document.getElementById('endScreen').classList.add('is-hidden');
+     document.getElementById('gameScreen').classList.remove('is-hidden');
+     document.getElementById('focusContent').classList.add('is-hidden');
+     clearBoard()
+     nextTurn()
+}
+
+mainMenu();
+
+document.getElementById('quitBtn').addEventListener('click', mainMenu);
+document.getElementById('nextRoundBtn').addEventListener('click', gameStart);
+document.getElementById('restartBtn').addEventListener('click', gameStart)

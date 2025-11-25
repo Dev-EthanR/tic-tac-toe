@@ -54,7 +54,7 @@ body {
   align-items: center;
   flex-direction: row;
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 768px) {
   .btn {
     font-size: 2rem;
     letter-spacing: 0.125rem;
@@ -74,17 +74,18 @@ body {
 }
 
 .btn-sm {
-  padding: 1rem;
+  padding: 1.2rem 2.2rem;
   max-width: 22.6rem;
   font-size: 1.6rem;
   letter-spacing: 0.1rem;
+  white-space: nowrap;
 }
 
 .btn-lg {
   max-width: 32.7rem;
   padding: 1.1rem 2rem;
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 768px) {
   .btn-lg {
     padding: 1.4rem 2rem;
     max-width: 46rem;
@@ -149,7 +150,7 @@ body {
   background-color: hsl(202, 32%, 15%);
   border-radius: 10px;
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 768px) {
   .switch {
     width: 412px;
   }
@@ -184,7 +185,7 @@ body {
   align-items: center;
   flex-direction: row;
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 768px) {
   .slider .btn-active {
     width: 200px;
   }
@@ -202,7 +203,7 @@ body {
   align-items: center;
   flex-direction: row;
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 768px) {
   .slider .btn-inactive {
     width: 190px;
   }
@@ -236,7 +237,7 @@ input:focus-visible + .slider {
 input:checked + .slider .btn-active {
   transform: translateX(130px);
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 768px) {
   input:checked + .slider .btn-active {
     transform: translateX(195px);
   }
@@ -253,7 +254,7 @@ input:not(:checked) + .slider .btn-active {
 input:not(:checked) + .slider .btn-inactive {
   transform: translateX(130px);
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 768px) {
   input:not(:checked) + .slider .btn-inactive {
     transform: translateX(195px);
   }
@@ -297,7 +298,7 @@ input:not(:checked) + .slider .btn-inactive {
   --tile-width: 9.6rem;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 768px) {
   :root {
     --tile-width: 14rem;
   }
@@ -306,7 +307,7 @@ input:not(:checked) + .slider .btn-inactive {
   width: 100%;
   max-width: 328px;
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 768px) {
   .game-container {
     max-width: 460px;
   }
@@ -421,4 +422,83 @@ input:not(:checked) + .slider .btn-inactive {
 }
 .game-scores .p2-score {
   background-color: hsl(39, 88%, 58%);
+}
+
+.end-screen {
+  position: absolute;
+  z-index: 1;
+  background: hsl(202, 32%, 15%);
+  width: 100%;
+  height: 228px;
+  padding: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+@media screen and (min-width: 768px) {
+  .end-screen {
+    height: 266px;
+  }
+}
+.end-screen .end-screen-buttons {
+  display: flex;
+  gap: 2rem;
+}
+.end-screen .end-screen-winner {
+  font-size: 2.4rem;
+  letter-spacing: 0.15rem;
+  font-weight: 700;
+  display: flex;
+  text-transform: uppercase;
+  gap: 2.4rem;
+}
+@media screen and (min-width: 768px) {
+  .end-screen .end-screen-winner {
+    font-size: 4rem;
+    letter-spacing: 0.25rem;
+  }
+}
+.end-screen .end-screen-winner img {
+  width: 30px;
+  height: 30px;
+}
+@media screen and (min-width: 768px) {
+  .end-screen .end-screen-winner img {
+    width: 64px;
+    height: 64px;
+  }
+}
+.end-screen .result-text {
+  color: hsl(198, 23%, 72%);
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+@media screen and (min-width: 768px) {
+  .end-screen .result-text {
+    font-size: 1.6rem;
+  }
+}
+.end-screen .result-text.is-tie {
+  font-size: 2.4rem;
+}
+@media screen and (min-width: 768px) {
+  .end-screen .result-text.is-tie {
+    font-size: 4rem;
+  }
+}
+
+.focus-content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: hsla(0, 0%, 0%, 0.87);
+}
+
+#endScreenWinner.color-primary {
+  color: hsl(39, 88%, 58%);
+}
+#endScreenWinner.color-secondary {
+  color: hsl(178, 60%, 48%);
 }/*# sourceMappingURL=styles.css.map */

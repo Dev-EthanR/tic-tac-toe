@@ -54,7 +54,7 @@
           <img src="assets/icon-x.svg" alt="" />
           <span class="current-turn-text">turn</span>
         </div>
-        <button class="btn btn-xs btn-grey">
+        <button class="btn btn-xs btn-grey" id="restartBtn">
           <img src="assets/icon-restart.svg" alt="restart game" />
         </button>
       </header>
@@ -82,20 +82,27 @@
         </span>
       </footer>
     </main>
-    <!-- x/o icon -->
-    <!-- turn X (You) -->
-    <!-- Your score -->
-    <!-- Ties -->
-    <!-- Ties score -->
-    <!-- X (CPU) -->
-    <!-- CPU score -->
 
-    <!-- Oh no, you lost You won! Player -->
+  <section class="end-screen is-hidden" id="endScreen">
+      <h2 class="result-text" id="resultText">Oh no, you lost You won! Player </h2>
+      <div class="end-screen-winner" id="winnerContentContainer">
+        <img id="endScreenImg" src="assets/icon-x.svg" alt=""> 
+        <h3 id="endScreenWinner">takes the round </h3>
+      </div>
+      <div class="end-screen-buttons">
+        <button class="btn btn-grey btn-sm" id="quitBtn"">quit</button>
+        <button class="btn btn-gold btn-sm" id="nextRoundBtn">Next round</button>
+      </div>
+      
+  </section>
+  <div class="focus-content is-hidden" id="focusContent"></div>
+
+    <!-- -->
     <!-- 1/2 -->
     <!-- wins! -->
 
     <!-- x/o icon -->
-    <!-- takes the round Round tied Restart game? Quit Next round No, cancel Yes,
+    <!-- tied Restart game?   No, cancel Yes,
     restart -->
 
     <!-- Game board end -->

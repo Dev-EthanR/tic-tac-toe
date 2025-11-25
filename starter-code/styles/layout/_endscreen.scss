@@ -1,0 +1,70 @@
+@use '../utils/utils' as *;
+
+.end-screen {
+    position: absolute;
+    z-index: 1;
+    background: getColor('primary');
+    width: 100%;
+    height: 228px;
+    @include screen("tablet") {
+        height: 266px;
+    }
+    padding: 5rem;
+    @include centerContent(column);
+    gap: 2.4rem;
+    .end-screen-buttons {
+        display: flex;
+        gap: 2rem;
+    }
+    .end-screen-winner {
+        font-size: getFont(size, 'heading-m');
+        letter-spacing: getFont(letter-spacing, 'heading-m');
+        @include screen('tablet') {
+            font-size: getFont(size, 'heading-l');
+            letter-spacing: getFont(letter-spacing, 'heading-l');
+        }
+        font-weight: getFont(weight, 'bold');
+        display: flex;
+        text-transform: uppercase;
+        gap: 2.4rem;
+        img {
+            width: 30px;
+            height: 30px;
+            @include screen("tablet") {
+                width: 64px;
+                height: 64px;
+            } 
+        }
+    }
+    .result-text {
+        color: getColor('accent');
+        font-size: getFont(size, 'body');
+        @include screen('tablet') {
+            font-size: getFont(size, 'heading-xs');
+        }
+        text-transform: uppercase;
+        &.is-tie {
+            font-size: getFont(size, 'heading-m');
+            @include screen("tablet") {
+                font-size: getFont(size, 'heading-l');
+            }
+        }
+    }
+}
+
+.focus-content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: hsla(0, 0%, 0%, 0.87)
+}
+
+#endScreenWinner {
+    &.color-primary {
+        color: getColor('action-primary');
+    }
+    &.color-secondary {
+        color: getColor('action-secondary');
+    }
+}
+
